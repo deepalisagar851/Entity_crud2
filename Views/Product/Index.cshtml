@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Entity_crud_2.Models.ViewModel.ProductListViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+
+        <td>Id</td>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Title</td>
+    <td>@item.Price</td>
+    <td>@item.Quantity</td>
+    <td>@item.Descr</td>
+    <td>@item.Category</td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+}
+
+</table>
